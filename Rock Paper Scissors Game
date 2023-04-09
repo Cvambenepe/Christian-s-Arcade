@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors Game</title>
+</head>
+<body>
+	<h1>Rock Paper Scissors</h1>
+	<p>Choose your move:</p>
+	<button onclick="play('rock')">Rock</button>
+	<button onclick="play('paper')">Paper</button>
+	<button onclick="play('scissors')">Scissors</button>
+	<p id="result"></p>
+	
+	<script>
+		function play(playerMove) {
+			// Generate a random move for the computer
+			var moves = ['rock', 'paper', 'scissors'];
+			var computerMove = moves[Math.floor(Math.random() * moves.length)];
+			
+			// Compare the player's move to the computer's move
+			if (playerMove == computerMove) {
+				document.getElementById("result").innerHTML = "It's a tie!";
+			} else if (
+				(playerMove == 'rock' && computerMove == 'scissors') ||
+				(playerMove == 'paper' && computerMove == 'rock') ||
+				(playerMove == 'scissors' && computerMove == 'paper')
+			) {
+				document.getElementById("result").innerHTML = "You win!";
+			} else {
+				document.getElementById("result").innerHTML = "Computer wins!";
+			}
+		}
+	</script>
+</body>
+</html>
